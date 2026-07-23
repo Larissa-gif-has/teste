@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suzano em Foco | Curiosidades e História</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Iguape (SP) - Tesouros e Curiosidades da Princesa do Litoral</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #047857;
-            --primary-dark: #065f46;
-            --accent: #10b981;
-            --bg-light: #f8fafc;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --white: #ffffff;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #0a3a40;
+            --secondary: #20639b;
+            --accent: #e07a5f;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -25,18 +27,18 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: var(--white);
-            padding: 4rem 1.5rem 6rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
             text-align: center;
+            padding: 5rem 1rem 4rem;
             position: relative;
+            overflow: hidden;
         }
 
         header::after {
@@ -44,63 +46,58 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            right: 0;
+            width: 100%;
             height: 40px;
-            background: var(--bg-light);
-            border-radius: 40px 40px 0 0;
-        }
-
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
+            background: var(--bg-color);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
         }
 
         header h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.5px;
         }
 
         header p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
             opacity: 0.9;
         }
 
         .container {
-            max-width: 1200px;
-            margin: -2rem auto 4rem;
-            padding: 0 1.5rem;
-            position: relative;
-            z-index: 10;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
         }
 
-        .filter-buttons {
+        .filters {
             display: flex;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 0.8rem;
             margin-bottom: 2.5rem;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            background: var(--white);
-            border: 1px solid #cbd5e1;
-            padding: 0.6rem 1.25rem;
+            background-color: white;
+            border: 2px solid #e2e8f0;
+            padding: 0.6rem 1.2rem;
             border-radius: 50px;
-            cursor: pointer;
             font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
             color: var(--text-muted);
             transition: var(--transition);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: var(--primary);
-            color: var(--white);
+            background-color: var(--primary);
             border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
+            color: white;
+            box-shadow: 0 4px 12px rgba(10, 58, 64, 0.2);
         }
 
         .grid {
@@ -110,126 +107,99 @@
         }
 
         .card {
-            background: var(--white);
-            border-radius: 1.25rem;
+            background-color: var(--card-bg);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            border: 1px solid #e2e8f0;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.04);
         }
 
         .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: var(--accent);
-        }
-
-        .card-header {
-            padding: 1.5rem 1.5rem 0.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
         }
 
         .card-tag {
-            background: #d1fae5;
-            color: var(--primary-dark);
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(10, 58, 64, 0.85);
+            backdrop-filter: blur(4px);
+            color: white;
+            padding: 0.3rem 0.8rem;
             font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
+            font-weight: 600;
+            border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.5px;
         }
 
-        .card-icon {
-            font-size: 1.5rem;
+        .card-header-bg {
+            height: 140px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
         }
 
         .card-body {
-            padding: 1rem 1.5rem 1.5rem;
+            padding: 1.8rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
         }
 
         .card-text {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 1.25rem;
+            flex-grow: 1;
+            margin-bottom: 1.2rem;
         }
 
-        .interactive-area {
-            border-top: 1px solid #f1f5f9;
+        .card-footer {
+            border-top: 1px solid #edf2f7;
             padding-top: 1rem;
-            margin-top: auto;
-        }
-
-        .action-btn {
-            background: transparent;
-            border: none;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 0.875rem;
-            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            transition: var(--transition);
+            gap: 0.5px;
         }
 
-        .action-btn:hover {
-            color: var(--primary-dark);
-            gap: 0.6rem;
-        }
-
-        .extra-info {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            background: #f8fafc;
-            border-radius: 0.5rem;
-            padding: 0 0.75rem;
-        }
-
-        .extra-info.show {
-            max-height: 150px;
-            padding: 0.75rem;
-            margin-top: 0.75rem;
-            border: 1px dashed #cbd5e1;
-        }
-
-        footer {
+        footer.main-footer {
             text-align: center;
             padding: 3rem 1rem;
-            background: #0f172a;
-            color: #94a3b8;
+            background-color: #1a202c;
+            color: #a0aec0;
+            margin-top: 4rem;
             font-size: 0.9rem;
         }
 
-        footer span {
-            color: var(--accent);
+        footer.main-footer span {
+            color: #fff;
             font-weight: 600;
         }
 
+        /* Responsividade */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2.25rem;
+                font-size: 2.2rem;
             }
-            .grid {
-                grid-template-columns: 1fr;
+            header {
+                padding: 3rem 1rem 3rem;
             }
         }
     </style>
@@ -237,196 +207,138 @@
 <body>
 
     <header>
-        <div class="header-content">
-            <h1>Descubra Suzano</h1>
-            <p>Explore a rica história, curiosidades marcantes e a identidade vibrante da nossa cidade paulista.</p>
-        </div>
+        <h1>Iguape • SP</h1>
+        <p>Explore as curiosidades, a história secular e os encantos da maior cidade em território do estado de São Paulo.</p>
     </header>
 
     <main class="container">
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">Todas</button>
-            <button class="filter-btn" data-filter="history">História</button>
-            <button class="filter-btn" data-filter="economy">Economia & Indústria</button>
-            <button class="filter-btn" data-filter="culture">Cultura & Lazer</button>
+        <!-- Filtros de Categoria -->
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterCards('all')">Todas</button>
+            <button class="filter-btn" onclick="filterCards('historia')">História & Patrimônio</button>
+            <button class="filter-btn" onclick="filterCards('natureza')">Natureza & Geografia</button>
+            <button class="filter-btn" onclick="filterCards('cultura')">Cultura & Curiosidades</button>
         </div>
 
-        <div class="grid" id="cards-grid">
-            
+        <!-- Grid de Cards -->
+        <div class="grid" id="card-grid">
+
             <!-- Card 1 -->
-            <div class="card" data-category="history">
-                <div class="card-header">
-                    <span class="card-tag">História</span>
-                    <span class="card-icon">📜</span>
-                </div>
+            <div class="card" data-category="historia">
+                <span class="card-tag">História</span>
+                <div class="card-header-bg">🏛️</div>
                 <div class="card-body">
-                    <div>
-                        <h3 class="card-title">Origens do Nome</h3>
-                        <p class="card-text">O nome da cidade é uma homenagem ao engenheiro Joaquim Suzano Brandão, responsável pela construção da antiga estação ferroviária que deu início ao povoado.</p>
-                    </div>
-                    <div class="interactive-area">
-                        <button class="action-btn" onclick="toggleInfo(this)">Ver Detalhes <span>&rarr;</span></button>
-                        <div class="extra-info">
-                            A estação foi inaugurada em 1875, pertencente à Estrada de Ferro do Norte (mais tarde Estrada de Ferro Central do Brasil), impulsionando o desenvolvimento regional.
-                        </div>
-                    </div>
+                    <h3 class="card-title">Gigante Territorial e Riqueza Colonial</h3>
+                    <p class="card-text">Iguape é o município com a **maior extensão territorial do estado de São Paulo**. Seu centro histórico abriga o maior conjunto arquitetônico colonial do estado tombado pelo IPHAN, parecendo congelar o tempo no século XIX.</p>
+                    <div class="card-footer">Patrimônio Nacional</div>
                 </div>
             </div>
 
             <!-- Card 2 -->
-            <div class="card" data-category="economy">
-                <div class="card-header">
-                    <span class="card-tag">Economia</span>
-                    <span class="card-icon">🌲</span>
-                </div>
+            <div class="card" data-category="natureza">
+                <span class="card-tag">Natureza</span>
+                <div class="card-header-bg">🌿</div>
                 <div class="card-body">
-                    <div>
-                        <h3 class="card-title">A Cidade do Papel</h3>
-                        <p class="card-text">Suzano abriga uma das maiores produtoras de papel e celulose do mundo, a Suzano S.A., sendo mundialmente reconhecida por esse polo industrial estratégico.</p>
-                    </div>
-                    <div class="interactive-area">
-                        <button class="action-btn" onclick="toggleInfo(this)">Ver Detalhes <span>&rarr;</span></button>
-                        <div class="extra-info">
-                            A forte presença industrial transformou o município em um polo magnético para empresas de logística, metalurgia e tecnologia de embalagens.
-                        </div>
-                    </div>
+                    <h3 class="card-title">Santuário Ecológico da Juréia</h3>
+                    <p class="card-text">Quase dois terços da Estação Ecológica Juréia-Itatins estão em Iguape. O local abriga um dos trechos mais preservados de Mata Atlântica do Brasil, manguezais intocados e uma rica biodiversidade costeira.</p>
+                    <div class="card-footer">Paraíso Verde</div>
                 </div>
             </div>
 
             <!-- Card 3 -->
-            <div class="card" data-category="culture">
-                <div class="card-header">
-                    <span class="card-tag">Cultura</span>
-                    <span class="card-icon">🌸</span>
-                </div>
+            <div class="card" data-category="cultura">
+                <span class="card-tag">Cultura</span>
+                <div class="card-header-bg">⛩️</div>
                 <div class="card-body">
-                    <div>
-                        <h3 class="card-title">Forte Influência Japonesa</h3>
-                        <p class="card-text">A colônia japonesa teve um papel fundamental no desenvolvimento agrícola de Suzano, introduzindo o cultivo de flores e hortaliças na região.</p>
-                    </div>
-                    <div class="interactive-area">
-                        <button class="action-btn" onclick="toggleInfo(this)">Ver Detalhes <span>&rarr;</span></button>
-                        <div class="extra-info">
-                            Suzano se destaca na produção de plantas ornamentais e flores, abastecendo o mercado interno e externo com muita tradição e beleza.
-                        </div>
-                    </div>
+                    <h3 class="card-title">Berço da Colonização Japonesa</h3>
+                    <p class="card-text">Oficialmente reconhecida por lei federal, Iguape é considerada o **berço da imigração e colonização japonesa no Brasil**, marcada pela chegada das primeiras famílias que impulsionaram o cultivo agrícola na região do Vale do Ribeira.</p>
+                    <div class="card-footer">Marco Histórico</div>
                 </div>
             </div>
 
             <!-- Card 4 -->
-            <div class="card" data-category="culture">
-                <div class="card-header">
-                    <span class="card-tag">Cultura</span>
-                    <span class="card-icon">🌳</span>
-                </div>
+            <div class="card" data-category="historia">
+                <span class="card-tag">História</span>
+                <div class="card-header-bg">🌊</div>
                 <div class="card-body">
-                    <div>
-                        <h3 class="card-title">Parque Max Feffer</h3>
-                        <p class="card-text">Considerado o coração verde da cidade, o Parque Max Feffer oferece lazer, pistas de caminhada, skate park e o famoso Pavilhão da Cultura Japonesa.</p>
-                    </div>
-                    <div class="interactive-area">
-                        <button class="action-btn" onclick="toggleInfo(this)">Ver Detalhes <span>&rarr;</span></button>
-                        <div class="extra-info">
-                            É o principal ponto de encontro das famílias suzanenses aos finais de semana, unindo natureza, esporte e eventos culturais ao ar livre.
-                        </div>
-                    </div>
+                    <h3 class="card-title">A Odisseia do Valo Grande</h3>
+                    <p class="card-text">Aberta em 1528 (e ampliada posteriormente), a vala artificial conhecida como Valo Grande alterou drasticamente a geografia local, ligando o Rio Ribeira de Iguape diretamente ao mar e transformando rotas comerciais e o ecossistema da região.</p>
+                    <div class="card-footer">Engenharia Antiga</div>
                 </div>
             </div>
 
             <!-- Card 5 -->
-            <div class="card" data-category="history">
-                <div class="card-header">
-                    <span class="card-tag">História</span>
-                    <span class="card-icon">🏛️</span>
-                </div>
+            <div class="card" data-category="cultura">
+                <span class="card-tag">Cultura</span>
+                <div class="card-header-bg">⛪</div>
                 <div class="card-body">
-                    <div>
-                        <h3 class="card-title">Emancipação Política</h3>
-                        <p class="card-text">Antes de se tornar município independente, Suzano fazia parte do território de Mogi das Cruzes, emancipando-se oficialmente em dezembro de 1948.</p>
-                    </div>
-                    <div class="interactive-area">
-                        <button class="action-btn" onclick="toggleInfo(this)">Ver Detalhes <span>&rarr;</span></button>
-                        <div class="extra-info">
-                            O movimento autonomista foi liderado por moradores locais que desejavam maior autonomia administrativa e investimentos focados na região.
-                        </div>
-                    </div>
+                    <h3 class="card-title">A Famosa Basílica do Senhor Bom Jesus</h3>
+                    <p class="card-text">Destino de peregrinação centenária, a Basílica do Senhor Bom Jesus de Iguape atrai milhares de fiéis todos os anos, guardando uma imagem sagrada milagrosa achada na praia e uma impressionante Sala dos Milagres.</p>
+                    <div class="card-footer">Fé e Tradição</div>
                 </div>
             </div>
 
             <!-- Card 6 -->
-            <div class="card" data-category="economy">
-                <div class="card-header">
-                    <span class="card-tag">Economia</span>
-                    <span class="card-icon">📍</span>
-                </div>
+            <div class="card" data-category="natureza">
+                <span class="card-tag">Natureza</span>
+                <div class="card-header-bg">🐚</div>
                 <div class="card-body">
-                    <div>
-                        <h3 class="card-title">Localização Estratégica</h3>
-                        <p class="card-text">Localizada na Região Metropolitana de São Paulo (Alto Tietê), Suzano possui fácil acesso ao Rodoanel e às principais rodovias do estado.</p>
-                    </div>
-                    <div class="interactive-area">
-                        <button class="action-btn" onclick="toggleInfo(this)">Ver Detalhes <span>&rarr;</span></button>
-                        <div class="extra-info">
-                            Essa proximidade com a capital paulista e com o Porto de Santos consolida a cidade como um corredor logístico de altíssima relevância.
-                        </div>
-                    </div>
+                    <h3 class="card-title">Mistérios dos Sambaquis</h3>
+                    <p class="card-text">Antes da chegada dos colonizadores, a região era habitada pelos chamados "Homens do Sambaqui". Esses povos primitivos deixaram montes colossais de conchas e restos alimentares com milhares de anos, considerados verdadeiros sítios arqueológicos sagrados.</p>
+                    <div class="card-footer">Arqueologia Milenar</div>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <footer>
-        <p>Desenvolvido com carinho para celebrar a história de <span>Suzano</span> &copy; 2026</p>
+    <main class="container" style="margin-top: 2rem;">
+        <div style="background: white; padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; text-align: center;">
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.5rem;">Quer saber mais sobre a Princesa do Litoral?</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Iguape combina perfeitamente o rústico, o sagrado e o ecológico em um só destino no litoral sul paulista.</p>
+        </div>
+    </main>
+
+    <main class="container" style="margin-top: -1rem; text-align: center;">
+        <button id="easter-egg-btn" style="background: var(--accent); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: var(--transition);">Descubra o Lema Oficial</button>
+        <p id="easter-egg-text" style="margin-top: 1rem; font-weight: 600; color: var(--primary); display: none;"></p>
+    </main>
+
+    <footer class="main-footer">
+        <p>Desenvolvido com foco em alta performance e design responsivo para celebrar <span>Iguape (SP)</span>.</p>
     </footer>
 
+    <!-- JavaScript Simples e Modular -->
     <script>
-        // Lógica de Filtro por Categoria
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.card');
+        // Função de Filtragem dos Cards
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filter-btn');
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove classe ativa de todos
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+            // Gerencia o estado ativo dos botões
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-                const filterValue = button.getAttribute('data-filter');
-
-                cards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filterValue === 'all' || category === filterValue) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+            // Mostra ou oculta os cards com base na categoria
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
             });
-        });
-
-        // Lógica de Expansão dos Detalhes dos Cards
-        function toggleInfo(button) {
-            const extraInfo = button.nextElementSibling;
-            const isOpen = extraInfo.classList.contains('show');
-
-            // Fecha todos os outros abertos (opcional para manter limpo)
-            document.querySelectorAll('.extra-info').forEach(info => {
-                info.classList.remove('show');
-            });
-            document.querySelectorAll('.action-btn span').forEach(span => {
-                span.style.transform = 'rotate(0deg)';
-            });
-
-            if (!isOpen) {
-                extraInfo.classList.add('show');
-                button.querySelector('span').style.transform = 'rotate(90deg)';
-                button.innerHTML = 'Menos Detalhes <span>&larr;</span>';
-            } else {
-                button.innerHTML = 'Ver Detalhes <span>&rarr;</span>';
-            }
         }
+
+        // Interação Dinâmica (Easter Egg com o lema da cidade)
+        const easterEggBtn = document.getElementById('easter-egg-btn');
+        const easterEggText = document.getElementById('easter-egg-text');
+
+        easterEggBtn.addEventListener('click', () => {
+            easterEggText.style.display = 'block';
+            easterEggText.textContent = '🌟 Lema Oficial de Iguape: "Detenho as virtudes dos paulistas"';
+            easterEggBtn.style.display = 'none';
+        });
     </script>
-</body>
-</html>
 </body>
 </html>
